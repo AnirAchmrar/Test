@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
@@ -11,21 +10,24 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>SpringPetClinic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>SpringPetClinic</name>
     <description>SpringPetClinic</description>
     <properties>
         <java.version>17</java.version>
     </properties>
-    <dependencies>
 
-
-
-    </dependencies>
+    <repositories>
+        <repository>
+            <id>spring</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/plugins-release/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -33,7 +35,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <checkModificationExcludes>
+                        <checkModificationExclude>pom.xml</checkModificationExclude>
+                        <checkModificationExclude>**</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>
+
+            </plugin>
         </plugins>
     </build>
+    <scm>
+        <developerConnection>scm:git:https://github.com/AnirAchmrar/Test.git</developerConnection>
+      <tag>SpringPetClinic-0.0.1</tag>
+  </scm>
 
 </project>
